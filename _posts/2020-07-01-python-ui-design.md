@@ -9,7 +9,7 @@ comments: true
 ---
 
 ## Python UI design
-Collected notes from: [Learn How to Quickly Create UIs in Python](https://towardsdatascience.com/learn-how-to-quickly-create-uis-in-python-a97ae1394d5).
+Notes collected from: [Learn How to Quickly Create UIs in Python](https://towardsdatascience.com/learn-how-to-quickly-create-uis-in-python-a97ae1394d5).
 
 ![Image](https://miro.medium.com/max/1400/0*ZgU5krrr16l8eV3m)
 <div style="text-align: right">Photo by Eftakher Alam on Unsplash</div>
