@@ -1,13 +1,13 @@
 # --- Basic options --- #
 
 # Name of website
-title: My website
+title: [Home]
 
 # Short description of your site
-description: A virtual proof that I'm awesome
+description: A collection of self-written or referenced technical notes.
 
 # Your name to show in the footer
-author: Some Person
+author: Yongchao Huang
 
 # --- List of links in the navigation bar --- #
 
@@ -16,20 +16,20 @@ navbar-links:
   Resources:
     - Beautiful Jekyll: "https://beautifuljekyll.com"
     - Learn markdown: "https://www.markdowntutorial.com/"
-  Author's home: "https://deanattali.com"
+  Author's home: "yongchaohuang.github.io"
 
 # --- Logo --- #
 
 # Image to show in the navigation bar - works best with a square image
 # Remove this parameter if you don't want an image in the navbar
-avatar: "/assets/img/avatar-icon.png"
+avatar: "/assets/img/profile.png" # hello_world.jpeg
 
 # By default, the image is cut into a circle. You can disable this behaviour by setting 'round-avatar: false'
 round-avatar: true
 
 # If you want to have an image logo in the top-left corner instead of the title text,
 # then specify the following parameter
-#title-img: /path/to/image
+#title-img: "/assets/img/Yongchao_Huang.png"
 
 
 # --- Footer options --- #
@@ -38,21 +38,21 @@ round-avatar: true
 # Uncomment the links you want to show and add your information to each one.
 # If you don't want to show a link to an RSS feed, set rss to "false".
 social-network-links:
-  email: "someone@example.com"
-  facebook: deanattali
-  github: daattali
-  twitter: daattali
-  rss: true
+  email: "huangyongchao2012@gamil.com"
+  #facebook: 
+  github: YongchaoHuang
+  #twitter: 
+  rss: false
 #  reddit: yourname
-#  linkedin: daattali
+#  linkedin: 
 #  xing: yourname
-#  stackoverflow: "3943160/daattali"
-#  snapchat: deanat78
-#  instagram: deanat78
-#  youtube: user/deanat78
+#  stackoverflow: "/"
+#  snapchat: 
+#  instagram: 
+#  youtube: user/
 #  spotify: yourname
-#  telephone: +14159998888
-#  steam: deanat78
+#  telephone: +
+#  steam: 
 #  twitch: yourname
 #  yelp: yourname
 #  telegram: yourname
@@ -63,14 +63,14 @@ social-network-links:
 
 # Select which social network share links to show in posts
 share-links-active:
-  twitter: true
-  facebook: true
-  linkedin: true
+  #twitter: true
+  #facebook: true
+  #linkedin: true
   vk: false
 
 # How to display the link to your website in the footer
 # Remove this if you don't want a link in the footer
-url-pretty: "MyWebsite.com"
+url-pretty: "yongchaohuang.github.io"
 
 # Create a "tags" index page and make tags on each post clickable
 link-tags: true
@@ -95,9 +95,9 @@ footer-link-col: "#404040"
 # Alternatively, the navbar, footer, and page background can be set to use background images
 # instead of colour
 
-#navbar-img: "/assets/img/bgimage.png"
-#footer-img: "/assets/img/bgimage.png"
-#page-img: "/assets/img/bgimage.png"
+navbar-img: "/assets/img/ox6.jpg"
+page-img: "/assets/img/bgimage.png"
+footer-img: "/assets/img/autumn_ox.jpg"
 
 # --- Web Statistics Section --- #
 
