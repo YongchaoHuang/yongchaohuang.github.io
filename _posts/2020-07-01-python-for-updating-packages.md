@@ -36,7 +36,7 @@ Re is the Python Regex library that allows us to easily match patterns. In this 
 Finally, PySimpleGUI will be the library we will use for the UI. We will define the UI, and then the events.  
 
 # Full Code
-~~~javascript
+~~~
 import subprocess
 import pandas as pd
 import re, threading
