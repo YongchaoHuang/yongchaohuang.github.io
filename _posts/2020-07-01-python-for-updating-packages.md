@@ -21,7 +21,8 @@ You can manage your packages through pip, so upgrading a library at a time was r
 If you loop through my packages and upgrade them - sometimes you have packages you don't want to upgrade. 
 
 
-# The task: build an UI that picks up the packages you want and upgrade them.
+# The task  
+Build an UI that picks up the packages you want and upgrade them.  
 
 # Solution
 Four libraries to use:  
@@ -34,7 +35,7 @@ Re is the Python Regex library that allows us to easily match patterns. In this 
 4. PySimpleGUI
 Finally, PySimpleGUI will be the library we will use for the UI. We will define the UI, and then the events.  
 
-# The Full Code
+# Full Code
 ~~~
 import subprocess
 import pandas as pd
