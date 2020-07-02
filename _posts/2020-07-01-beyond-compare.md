@@ -8,7 +8,7 @@ tags: [file, python]
 ---
 
 ## Beyond Compare
-Collected notes from: [3 Quick Ways To Compare Data with Python](https://medium.com/financeexplained/3-quick-ways-to-compare-data-in-python-65201be10b6).
+Notes collected from: [3 Quick Ways To Compare Data with Python](https://medium.com/financeexplained/3-quick-ways-to-compare-data-in-python-65201be10b6).
 
 ![Image](https://miro.medium.com/max/1400/0*sb7SWp9fkFa5xmtH)
 <div style="text-align: right">Photo by Franki Chamaki on Unsplash</div>
