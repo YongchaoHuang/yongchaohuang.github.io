@@ -2,6 +2,7 @@
 layout: post
 title: Python UI Design
 subtitle: A Python programme for UI design
+cover-img: /assets/img/ox3.jpg
 gh-repo: YongchaoHuang/yongchaohuang.github.io
 gh-badge: [UI, python]
 tags: [engineering]
