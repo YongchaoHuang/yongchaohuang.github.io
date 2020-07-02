@@ -1,16 +1,14 @@
 ---
 layout: page
 title: About me
-subtitle: Why you'd want to go on a date with me
+subtitle: An arts lover and a scientist, an adventurer and a nerd. A heart full of soul to sense the beautiful world.
 ---
 
-My name is Inigo Montoya. I have the following qualities:
+Hi there, welcome to my github page. \\
+My name is Yongchao Huang - a data science practioner/ML researcher/math enthusiatist.
 
-- I rock a great mustache
-- I'm extremely loyal to my family
+- I work on both algrithms and engineering.
+- and try to answer real-world questions via envidence.
 
-What else do you need?
 
-### my history
-
-To be honest, I'm having some trouble remembering right now, so why don't you just watch [my movie](https://en.wikipedia.org/wiki/The_Princess_Bride_%28film%29) and it will answer **all** your questions.
+If you have any queries, pls don't hesitate to get in touch.
