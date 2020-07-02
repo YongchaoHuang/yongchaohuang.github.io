@@ -15,7 +15,7 @@ Notes collected from: [Learn How to Quickly Create UIs in Python](https://toward
 ![Image](https://miro.medium.com/max/1400/0*ZgU5krrr16l8eV3m)
 <div style="text-align: right">Photo by Eftakher Alam on Unsplash</div>
 
-### Motivation
+# Motivation
 Sometimes, however, your target audience is not technical enough.\\
 They’d love to use your python scripts but only as long as they didn’t have to look at a single line of code.<br />
 They need a Uer Interface (UI) in such a case.\\
@@ -23,7 +23,7 @@ They need a Uer Interface (UI) in such a case.\\
 
 
 
-### The task: UI to check if two files are identical
+# The task: UI to check if two files are identical
 Design a UI to check if two files are identical, without mannually referecing to the Python scripts.<br />
 \* for file compare algorithms, pls check a previous post: [Beyond Compare](yongchaohuang/github.io/beyond_compare) <br />
 We essentially need a way to load up two files, and then choose the encryption we would like to use to do the file comparison.
@@ -129,7 +129,7 @@ window.close()
 Running the above code will give you the following outcome:  
 ![Image](https://miro.medium.com/max/1400/1*fVWBk7vx3-QviSOK87F9qw.png)
 
-### Remarks 
+# Remarks 
 - this library allows you to quickly spin up simple python UIs and share them
 - You will still have the problem of having to run the code to get the UI
 - but you can consider using something like PyInstaller which will turn your python script into a .exe that people can simply double click.
