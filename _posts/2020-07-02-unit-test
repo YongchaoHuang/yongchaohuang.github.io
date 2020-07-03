@@ -27,12 +27,31 @@ To test the functionality of each class, method, or module.
 The tester determines all legal (valid and invalid) AND illegal inputs and verifies the outputs against the expected outcomes
 
 # Concepts and Methods
-## White Box Testing
- * testing based on an analysis of the internal structure of the component or system.
- * the internal structure/design/implementation of the item being tested is known to the tester
- * the tester chooses inputs to exercise paths through the code and determines the appropriate outputs
-The key being, the software program, in the eyes of the tester, is like a white/transparent box; inside which one clearly sees.
+Unit test scope: within a unit.
 
 ## Methods
 Design the procedure to derive and/or select test cases based on an analysis of the internal structure of a component or system.
 
+### White Box Testing
+  1. Basics
+   * testing based on an analysis of the internal structure of the component or system.
+   * the internal structure/design/implementation of the item being tested is known to the tester
+   * the tester chooses inputs to exercise paths through the code and determines the appropriate outputs
+  The key being, the software program, in the eyes of the tester, is like a white/transparent box; inside which one clearly sees.
+
+  2. Uses
+  White Box Testing method mainly applied to Unit Testing, but it is applicable to the following levels of software testing:
+   * Unit Testing: For testing paths within a unit.
+   * Integration Testing: For testing paths between units.
+   * System Testing: For testing paths between subsystems.
+
+  3. Advantages
+   * Testing can be commenced at an earlier stage. One need not wait for the GUI to be available.
+   * Testing is more thorough, with the possibility of covering most paths
+  
+  4. Disadvantages
+   * Since tests can be very complex, highly skilled resources are required, with a thorough knowledge of programming and implementation.
+   * Test script maintenance can be a burden if the implementation changes too frequently.
+   * Since this method of testing is closely tied to the application being tested, tools to cater to every kind of implementation/platform may not be readily available.
+
+   
