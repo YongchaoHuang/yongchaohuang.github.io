@@ -88,17 +88,34 @@ Two Box Testing methods: White Box Tesing, Black Box Testing
     * Statement Coverage:- This technique requires every possible statement in the code to be tested at least once during the testing process of software engineering.
     * Branch Coverage - This technique checks every possible path (if-else and other conditional loops) of a software application.
     * Apart from above, there are numerous coverage types such as Condition Coverage, Multiple Condition Coverage, Path Coverage, Function Coverage etc. Each technique has its own merits and attempts to test (cover) all parts of software code. Using Statement and Branch coverage you generally attain 80-90% code coverage which is sufficient.
+    
+   White Box Testing Tools
+    * Parasoft Jtest
+    * EclEmma
+    * NUnit
+    * PyUnit
+    * HTMLUnit
+    * CppUnit
 
 
   6. Advantages
    * Testing can be commenced at an earlier stage. One need not wait for the GUI to be available.
    * Testing is more thorough, with the possibility of covering most paths
+   * Code optimization by finding hidden errors.
+   * White box tests cases can be easily automated.
+   * Testing is more thorough as all code paths are usually covered.
+   * Testing can start early in SDLC even if GUI is not available.
   
   7. Disadvantages
    * Since tests can be very complex, highly skilled resources are required, with a thorough knowledge of programming and implementation.
    * Test script maintenance can be a burden if the implementation changes too frequently.
    * Since this method of testing is closely tied to the application being tested, tools to cater to every kind of implementation/platform may not be readily available.
-
+   * White box testing can be quite complex and expensive.
+   * White box testing requires professional resources, with a detailed understanding of programming and implementation.
+   * White box testing is time-consuming, bigger programming applications take the time to test fully.
+ 
+  8. Other notes
+   White box testing can be quite complex. The complexity involved has a lot to do with the application being tested. A small application that performs a single simple operation could be white box tested in few minutes, while larger programming applications take days, weeks and even longer to fully test
 
 ### Black Box Testing (also known as Behavioral Testing)
 ![Image](http://34.94.91.25/wp-content/uploads/2010/12/black_box_testing-300x149.gif)
