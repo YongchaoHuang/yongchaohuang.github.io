@@ -12,6 +12,7 @@ comments: true
 References: <br />
   * [Unit Testing](http://softwaretestingfundamentals.com/unit-testing/).
   * [White Box Testing](http://softwaretestingfundamentals.com/white-box-testing/).
+  * [What is WHITE Box Testing? Techniques, Example, Types & Tools](https://www.guru99.com/white-box-testing.html).
 
 ![Image](https://miro.medium.com/max/1400/1*NPSOR5poCFWhTJgkmyjB5g.gif)
 <div style="text-align: right"> Images may be subject to copyright. </div>
@@ -24,19 +25,87 @@ So I decided to record some of my learnings 3 years later.
 
 # The task  
 To test the functionality of each class, method, or module.  
-The tester determines all legal (valid and invalid) AND illegal inputs and verifies the outputs against the expected outcomes
+The tester determines all legal (valid and invalid) AND illegal inputs and verifies the outputs against the expected outcomes.
+To verify the flow of inputs and outputs through the application, improving design and usability, strengthening security.
 
 # Concepts and Methods
 Unit test scope: within a unit.
 
 ## Methods
 Design the procedure to derive and/or select test cases based on an analysis of the internal structure of a component or system.
+Two Box Testing methods: White Box Tesing, Black Box Testing
 
-### White Box Testing
+### White Box Testing (also structural testing)
   1. Basics
    * testing based on an analysis of the internal structure of the component or system.
    * the internal structure/design/implementation of the item being tested is known to the tester
    * the tester chooses inputs to exercise paths through the code and determines the appropriate outputs
+  The key being, the software program, in the eyes of the tester, is like a white/transparent box; inside which one clearly sees.
+
+  2. Uses
+  The testing can be done at system, integration and unit levels of software development. One of the basic goals of whitebox testing is to verify a working flow for an application. It involves testing a series of predefined inputs against expected or desired outputs so that when a specific input does not result in the expected output, you have encountered a bug.
+  
+  White Box Testing method mainly applied to Unit Testing, but it is applicable to the following levels of software testing:
+   * Unit Testing: For testing paths within a unit.
+   * Integration Testing: For testing paths between units.
+   * System Testing: For testing paths between subsystems.
+  
+  What do you verify in White Box Testing?
+   White box testing involves the testing of the software code for the following:
+   * Internal security holes
+   * Broken or poorly structured paths in the coding processes
+   * The flow of specific inputs through the code
+   * Expected output
+   * The functionality of conditional loops
+   * Testing of each statement, object, and function on an individual basis
+  
+  How do you perform White Box Testing?
+   two basic steps: 
+   * STEP 1) UNDERSTAND THE SOURCE CODE
+   * Step 2) CREATE TEST CASES AND EXECUTE
+  
+  4. White Box Testing Examples
+   Consider the following piece of code:
+   ```
+   Printme (int a, int b) {                       ------------  Printme is a function 
+    int result = a+ b; 
+    If (result> 0)
+    	Print ("Positive", result)
+    Else
+    	Print ("Negative", result)
+    }                                            -----------   End of the source code 
+   ```
+   The goal of WhiteBox testing in software engineering is to verify all the decision branches, loops, statements in the code.
+   To exercise the statements in the above code, WhiteBox test cases would be
+     A = 1, B = 1
+     A = -1, B = -3
+  
+  5. White Box Testing Techniques
+   A major White box testing technique is Code Coverage analysis. Code Coverage analysis eliminates gaps in a Test Case suite. It identifies areas of a program that are not exercised by a set of test cases. Once gaps are identified, you create test cases to verify untested parts of the code, thereby increasing the quality of the software product.
+   
+   There are automated tools available to perform Code coverage analysis. Below are a few coverage analysis techniques a box tester can use:
+
+    * Statement Coverage:- This technique requires every possible statement in the code to be tested at least once during the testing process of software engineering.
+    * Branch Coverage - This technique checks every possible path (if-else and other conditional loops) of a software application.
+    * Apart from above, there are numerous coverage types such as Condition Coverage, Multiple Condition Coverage, Path Coverage, Function Coverage etc. Each technique has its own merits and attempts to test (cover) all parts of software code. Using Statement and Branch coverage you generally attain 80-90% code coverage which is sufficient.
+
+
+  6. Advantages
+   * Testing can be commenced at an earlier stage. One need not wait for the GUI to be available.
+   * Testing is more thorough, with the possibility of covering most paths
+  
+  7. Disadvantages
+   * Since tests can be very complex, highly skilled resources are required, with a thorough knowledge of programming and implementation.
+   * Test script maintenance can be a burden if the implementation changes too frequently.
+   * Since this method of testing is closely tied to the application being tested, tools to cater to every kind of implementation/platform may not be readily available.
+
+
+### Black Box Testing (also known as Behavioral Testing)
+![Image](http://34.94.91.25/wp-content/uploads/2010/12/black_box_testing-300x149.gif)
+<div style="text-align: right"> Images may be subject to copyright. </div>
+  1. Basics
+   * internal structure/design/implementation of the item being tested is not known to the tester
+   * can be functional or non-functional, though usually functional.
   The key being, the software program, in the eyes of the tester, is like a white/transparent box; inside which one clearly sees.
 
   2. Uses
@@ -50,8 +119,8 @@ Design the procedure to derive and/or select test cases based on an analysis of 
    * Testing is more thorough, with the possibility of covering most paths
   
   4. Disadvantages
-   * Since tests can be very complex, highly skilled resources are required, with a thorough knowledge of programming and implementation.
-   * Test script maintenance can be a burden if the implementation changes too frequently.
-   * Since this method of testing is closely tied to the application being tested, tools to cater to every kind of implementation/platform may not be readily available.
-
+  
+  
+  
+  
    
