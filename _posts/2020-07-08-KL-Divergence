@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Kullback-Leibler (KL) Divergence
-subtitle: A revisit to KLD
+title: Kullback-Leibler (KL) Divergence and Jensen-Shannon Divergence
+subtitle: A revisit to KLD and JSD
 cover-img: /assets/img/2020-07-02-unit-test/summer_ox.jpg
 gh-repo: YongchaoHuang/yongchaohuang.github.io
 gh-badge: [stats, python]
@@ -17,10 +17,12 @@ References: <br />
 <div style="text-align: right"> [Images may be subject to copyright] </div>
 
 # Motivation
-It was years ago when I first came across this concept. I decided to record it since I have been frequently deriving the entropy relations.
+It was years ago when I first came across these concepts. I decided to record it since I have been frequently deriving the entropy relations.
 
 
-# The concept 
+# KLD
+
+## the concept 
 * KLD is a method of measuring statistical distance. Sometimes referred to as “relative entropy.”
 * Statistical distance is the general idea of calculating the difference between statistical objects like different probability distributions for a random variable.
 * Kullback-Leibler divergence calculates a score that measures the divergence of one probability distribution from another.
@@ -55,12 +57,12 @@ This sum (or integral in the case of continuous random variables) will always be
 
 Importantly, the KL divergence score is not symmetrical, i.e. KL(P || Q) != KL(Q || P). 
 
-# Application
+## Application
 If we are attempting to approximate an unknown probability distribution, then the target probability distribution from data is P and Q is our approximation of the distribution.
 In this case, the KL divergence summarizes the number of additional bits (i.e. calculated with the base-2 logarithm) required to represent an event from the random variable. The better our approximation, the less additional information is required.
 '… the KL divergence is the average number of extra bits needed to encode the data, due to the fact that we used distribution q to encode the data instead of the true distribution p.' [Page 58, Machine Learning: A Probabilistic Perspective, 2012.]
 
-# Python Example 1: [KL Divergence Python Example](https://towardsdatascience.com/kl-divergence-python-example-b87069e4b810).
+## KLD Python Example 1: [KL Divergence Python Example](https://towardsdatascience.com/kl-divergence-python-example-b87069e4b810).
 1. import libraries
 ```
 import numpy as np
@@ -99,7 +101,149 @@ plt.plot(x, p)
 plt.plot(x, q, c='red')
 ```
 
-# Python Example 2: [How to Calculate the KL Divergence for Machine Learning](https://machinelearningmastery.com/divergence-between-probability-distributions/).
+## KLD Python Example 2: [How to Calculate the KL Divergence for Machine Learning](https://machinelearningmastery.com/divergence-between-probability-distributions/).
+Consider a random variable with three events as different colors. We may have two different probability distributions for this variable:
+```
+1. define distributions
+events = ['red', 'green', 'blue']
+p = [0.10, 0.40, 0.50]
+q = [0.80, 0.15, 0.05]
+```
+
+2. visulize distributions
+```
+from matplotlib import pyplot
+# define distributions
+events = ['red', 'green', 'blue']
+p = [0.10, 0.40, 0.50]
+q = [0.80, 0.15, 0.05]
+print('P=%.3f Q=%.3f' % (sum(p), sum(q)))
+# plot first distribution
+pyplot.subplot(2,1,1)
+pyplot.bar(events, p)
+# plot second distribution
+pyplot.subplot(2,1,2)
+pyplot.bar(events, q)
+# show the plot
+pyplot.show()
+```
+Running the example creates a histogram for each probability distribution, allowing the probabilities for each event to be directly compared. We can see that indeed the distributions are different.
+
+![Image](https://3qeqpr26caki16dnhd19sv6by6v-wpengine.netdna-ssl.com/wp-content/uploads/2019/08/Histogram-of-Two-Different-Probability-Distributions-for-the-same-Random-Variable.png)
+<div style="text-align: right"> [Images may be subject to copyright] </div>
+
+3. Next, we can develop a function to calculate the KL divergence between the two distributions. We will use log base-2 to ensure the result has units in bits.
+```
+# calculate the kl divergence
+def kl_divergence(p, q):
+	return sum(p[i] * log2(p[i]/q[i]) for i in range(len(p)))
+ ```
+ 
+ 4. We can then use this function to calculate the KL divergence of P from Q, as well as the reverse, Q from P: 
+ ```
+# calculate (P || Q)
+kl_pq = kl_divergence(p, q)
+print('KL(P || Q): %.3f bits' % kl_pq)
+# calculate (Q || P)
+kl_qp = kl_divergence(q, p)
+print('KL(Q || P): %.3f bits' % kl_qp)
+ ```
+Running the example first calculates the divergence of P from Q as just under 2 bits, then Q from P as just over 2 bits.
+KL(P || Q): 1.927 bits
+KL(Q || P): 2.022 bits
+This is intuitive if we consider P has large probabilities when Q is small, giving P less divergence than Q from P as Q has more small probabilities when P has large probabilities. There is more divergence in this second case.
+If we change log2() to the natural logarithm log() function, the result is in nats, as follows:
+# KL(P || Q): 1.336 nats
+# KL(Q || P): 1.401 nats
+
+* The SciPy library provides the kl_div() function for calculating the KL divergence, although with a different definition as defined here. It also provides the rel_entr() function for calculating the relative entropy, which matches the definition of KL divergence here. 
+* The rel_entr() function calculation uses the natural logarithm instead of log base-2 so the units are in nats instead of bits.
+```
+# example of calculating the kl divergence (relative entropy) with scipy
+from scipy.special import rel_entr
+# define distributions
+p = [0.10, 0.40, 0.50]
+q = [0.80, 0.15, 0.05]
+# calculate (P || Q)
+kl_pq = rel_entr(p, q)
+print('KL(P || Q): %.3f nats' % sum(kl_pq))
+# calculate (Q || P)
+kl_qp = rel_entr(q, p)
+print('KL(Q || P): %.3f nats' % sum(kl_qp))
+```
+Running it gives: 
+KL(P || Q): 1.336 nats
+KL(Q || P): 1.401 nats
+
+
+
+# Jensen-Shannon Divergence
+## The concept
+The Jensen-Shannon divergence, or JS divergence for short, is another way to quantify the difference (or similarity) between two probability distributions
+It uses the KL divergence to calculate a normalized score that is symmetrical. This means that the divergence of P from Q is the same as Q from P: 
+JS(P || Q) == JS(Q || P)
+
+The JS divergence can be calculated as follows:
+JS(P || Q) = 1/2 * KL(P || M) + 1/2 * KL(Q || M)
+Where M is calculated as:
+M = 1/2 * (P + Q)
+
+* It is more useful as a measure as it provides a smoothed and normalized version of KL divergence, with scores between 0 (identical) and 1 (maximally different), when using the base-2 logarithm.
+* The square root of the score gives a quantity referred to as the Jensen-Shannon distance, or JS distance for short.
+
+## JSD Python example
+1. define a function to calculate the JS divergence that uses the kl_divergence() function prepared in the previous section: 
+```
+# calculate the kl divergence
+def kl_divergence(p, q):
+	return sum(p[i] * log2(p[i]/q[i]) for i in range(len(p)))
+ 
+# calculate the js divergence
+def js_divergence(p, q):
+	m = 0.5 * (p + q)
+	return 0.5 * kl_divergence(p, m) + 0.5 * kl_divergence(q, m)
+```
+
+2. We can then test this function using the same probability distributions used in the previous section.
+```
+# calculate JS(P || Q)
+js_pq = js_divergence(p, q)
+print('JS(P || Q) divergence: %.3f bits' % js_pq)
+print('JS(P || Q) distance: %.3f' % sqrt(js_pq))
+```
+show that the divergence is symmetrical: 
+```
+# calculate JS(Q || P)
+js_qp = js_divergence(q, p)
+print('JS(Q || P) divergence: %.3f bits' % js_qp)
+print('JS(Q || P) distance: %.3f' % sqrt(js_qp))
+```
+Running the example shows that the JS divergence between the distributions is about 0.4 bits and that the distance is about 0.6.
+JS(P || Q) divergence: 0.420 bits
+JS(P || Q) distance: 0.648
+JS(Q || P) divergence: 0.420 bits
+JS(Q || P) distance: 0.648
+
+* The SciPy library provides an implementation of the JS distance via the jensenshannon() function. It takes arrays of probabilities across all events from each probability distribution as arguments and returns the JS distance score, not a divergence score: 
+```
+from scipy.spatial.distance import jensenshannon
+from numpy import asarray
+# define distributions
+p = asarray([0.10, 0.40, 0.50])
+q = asarray([0.80, 0.15, 0.05])
+# calculate JS(P || Q)
+js_pq = jensenshannon(p, q, base=2)
+print('JS(P || Q) Distance: %.3f' % js_pq)
+# calculate JS(Q || P)
+js_qp = jensenshannon(q, p, base=2)
+print('JS(Q || P) Distance: %.3f' % js_qp)
+```
+Running the example, we can confirm the distance score matches our manual calculation of 0.648, and that the distance calculation is symmetrical as expected: 
+JS(P || Q) Distance: 0.648
+JS(Q || P) Distance: 0.648
+
+
+
 
 
 
