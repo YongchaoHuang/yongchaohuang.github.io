@@ -153,8 +153,8 @@ KL(P || Q): 1.927 bits <br />
 KL(Q || P): 2.022 bits <br />
 This is intuitive if we consider P has large probabilities when Q is small, giving P less divergence than Q from P as Q has more small probabilities when P has large probabilities. There is more divergence in this second case. <br />
 If we change log2() to the natural logarithm log() function, the result is in nats, as follows:<br />
-# KL(P || Q): 1.336 nats <br />
-# KL(Q || P): 1.401 nats <br />
+KL(P || Q): 1.336 nats <br />
+KL(Q || P): 1.401 nats <br />
 
 * The SciPy library provides the kl_div() function for calculating the KL divergence, although with a different definition as defined here. It also provides the rel_entr() function for calculating the relative entropy, which matches the definition of KL divergence here. <br />
 * The rel_entr() function calculation uses the natural logarithm instead of log base-2 so the units are in nats instead of bits.<br />
@@ -185,9 +185,9 @@ It uses the KL divergence to calculate a normalized score that is symmetrical. T
 JS(P || Q) == JS(Q || P)
 
 The JS divergence can be calculated as follows:<br />
-JS(P || Q) = 1/2 * KL(P || M) + 1/2 * KL(Q || M)
+JS(P || Q) = 1/2 * KL(P || M) + 1/2 * KL(Q || M) <br />
 Where M is calculated as:<br />
-M = 1/2 * (P + Q)
+M = 1/2 * (P + Q) <br />
 
 * It is more useful as a measure as it provides a smoothed and normalized version of KL divergence, with scores between 0 (identical) and 1 (maximally different), when using the base-2 logarithm.<br />
 * The square root of the score gives a quantity referred to as the Jensen-Shannon distance, or JS distance for short.<br />
@@ -241,8 +241,8 @@ js_qp = jensenshannon(q, p, base=2)
 print('JS(Q || P) Distance: %.3f' % js_qp)
 ```
 Running the example, we can confirm the distance score matches our manual calculation of 0.648, and that the distance calculation is symmetrical as expected: <br />
-JS(P || Q) Distance: 0.648
-JS(Q || P) Distance: 0.648
+JS(P || Q) Distance: 0.648 <br />
+JS(Q || P) Distance: 0.648 <br />
 
 
 
