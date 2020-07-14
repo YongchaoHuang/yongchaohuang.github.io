@@ -14,9 +14,9 @@ References: <br />
 
 
 # Motivation
-If you are running a script (module) which incokes another module form command line (e.g. unit testing), without a \[__init__.py\] file (even empty) defined in the same directory, most likely it's gonna raise 'no module named...' error. <br />
+If you are running a script (module) which incokes another module form command line (e.g. unit testing), without a *\__init__.py* file (even empty) defined in the same directory, most likely it's gonna raise 'no module named...' error. <br />
 Or when you are running a script with 'import xx from x', it's gonna be a long prefix. <br />
-These functionalities can be packed into the \[__init__.py\] file.  <br />
+These functionalities can be packed into the *\__init__.py\* file.  <br />
 
 # Implementation
 Python 'import' function internally invokes '__import__' method. You can directly use it as well. 
