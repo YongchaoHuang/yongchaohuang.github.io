@@ -35,6 +35,10 @@ layout: base
         {{ content }}
       </article>
 
+      {% if page.use_math %}
+      {% include mathjax_support %}
+      {% endif %}
+      
       {% if page.tags.size > 0 %}
         <div class="blog-tags">
           Tags:
