@@ -3,6 +3,9 @@ layout: base
 ---
 
 {% include header.html type="page" %}
+{% if page.use_math %}
+  {% include mathjax_support %}
+{% endif %}
 
 <div class="container-md" role="main">
   <div class="row">
