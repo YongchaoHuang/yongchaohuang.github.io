@@ -29,6 +29,10 @@ common-js:
     {% include gtm_body.html %}
   
     {% include nav.html %}
+    
+    {% if page.use_math %}
+      {% include mathjax_support %}
+    {% endif %}
 
     {{ content }}
 
